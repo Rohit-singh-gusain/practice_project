@@ -1,0 +1,29 @@
+name: deploy codes in aws s3 bucket
+
+on:
+  push:
+    branches:
+      -main
+
+jobs:
+  aws-credentials:
+    runs on: ubuntu-latest
+      steps:
+      - name: checkout
+        uses: actions/checkout@v1
+
+      - name: aws-credentials
+        with:
+          uses: aws actions/configure-aws-credentials@v1
+          aws_access_key_id: ${{secrets.aws_access_key_id}}
+          aws_secret_access_key: ${{secrets.aws_access_key_id}}
+          aws-region: ap-northeast-3
+
+      - name: final deploy
+        run: aws s3 sync . s3//rohit-zoro-luffy
+        
+        
+    
+      
+
+
