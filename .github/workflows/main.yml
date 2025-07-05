@@ -1,17 +1,17 @@
-name: Deploy code to AWS S3 bucket
+name: Deploy codes in AWS S3 bucket
 
 on:
   push:
     branches:
-      - main  # added a space
+      - main  # Fixed space
 
 jobs:
   deploy-to-s3:
-    runs-on: ubuntu-latest  # fixed indentation and key
+    runs-on: ubuntu-latest  # Fixed key
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # using latest version
+        uses: actions/checkout@v3  # Updated to latest stable
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
